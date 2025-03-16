@@ -122,3 +122,10 @@ Click the "Refresh Data" button on any page to fetch the latest data from the St
 ## Contact
 
 - Author: [Aman Kumar Bairagi](mailto:amanbairagi1089@gmail.com)
+
+
+
+## Perferomance and SEO results
+![image](https://github.com/user-attachments/assets/827d43a6-ac4d-4105-99e4-2dbf84e9ca7e)
+![image](https://github.com/user-attachments/assets/68bb10e4-08b8-4b1d-ab70-6c7518203f7f)
+
