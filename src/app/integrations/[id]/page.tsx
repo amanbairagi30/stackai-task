@@ -118,7 +118,6 @@ export default async function IntegrationDetailPage({
               </div>
             )}
           </section>
-          {/* Display actions if toolData exists */}
 
           <div className="rounded-lg mt-8">
             {toolData ? (

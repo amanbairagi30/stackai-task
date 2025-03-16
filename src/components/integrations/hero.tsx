@@ -1,11 +1,9 @@
 "use client";
-import { Eye } from "@phosphor-icons/react";
-import { Layout } from "@phosphor-icons/react";
-import { Cube } from "@phosphor-icons/react";
 import { CubeFocus } from "@phosphor-icons/react";
 import { Logo } from "../svgs/logo";
 import { Badge } from "../ui/badge";
 import { HeroButton } from "../hero-button";
+import { heroData } from "@/constants/data";
 
 export const Hero = () => {
   return (
@@ -27,24 +25,15 @@ export const Hero = () => {
 
         {/* Below information are just mock information */}
         <div className="flex gap-3 items-center w-full justify-center mt-6 flex-wrap">
-          <Badge
-            variant={"secondary"}
-            className="rounded-sm transition-all duration-500 hover:font-extrabold flex items-center gap-2 text-sm h-fit"
-          >
-            50+ Integrations <Cube className="size-5" />
-          </Badge>
-          <Badge
-            variant={"secondary"}
-            className="rounded-sm transition-all duration-500 hover:font-extrabold flex items-center gap-2 text-sm h-fit"
-          >
-            2000+ projects created <Layout className="size-5" />
-          </Badge>
-          <Badge
-            variant={"secondary"}
-            className="rounded-sm transition-all duration-500 hover:font-extrabold flex items-center gap-2 text-sm h-fit"
-          >
-            500K+ Total Views <Eye className="size-5" />
-          </Badge>
+          {heroData.map((item) => (
+            <Badge
+              key={item.title}
+              variant={"secondary"}
+              className="rounded-sm transition-all duration-500 hover:font-extrabold flex items-center gap-2 text-sm h-fit"
+            >
+              {item.title} <item.icon className="size-5" />
+            </Badge>
+          ))}
         </div>
       </div>
     </section>

@@ -47,7 +47,7 @@ export default async function ActionDetailPage({
   }
 
   return (
-    <div className="">
+    <section className="">
       <BackButton text={`${toolData.name} Integration`} />
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-2">
@@ -136,6 +136,6 @@ export default async function ActionDetailPage({
           )}
         </CardContent>
       </Card>
-    </div>
+    </section>
   );
 }

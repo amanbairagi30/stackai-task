@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "StackAI - Integrations",
+  description: "StackAI - Integrations",
+};
+
 export default function IntegrationLayout({
   children,
 }: {
