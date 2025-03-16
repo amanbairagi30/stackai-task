@@ -9,7 +9,7 @@ import { HeroButton } from "../hero-button";
 
 export const Hero = () => {
   return (
-    <div className="relative mb-10 w-full overflow-y-hidden h-[30rem] max-h-fit">
+    <section className="relative mb-10 w-full overflow-y-hidden h-[30rem] max-h-fit">
       <div className="max-w-7xl flex gap-3 items-center py-14 flex-col h-fit mx-auto p-6">
         <div className="flex flex-col gap-3 mb-4">
           <Logo />
@@ -25,6 +25,7 @@ export const Hero = () => {
           See all Integrations <CubeFocus weight="duotone" className="size-5" />
         </HeroButton>
 
+        {/* Below information are just mock information */}
         <div className="flex gap-3 items-center w-full justify-center mt-6 flex-wrap">
           <Badge
             variant={"secondary"}
@@ -46,6 +47,6 @@ export const Hero = () => {
           </Badge>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

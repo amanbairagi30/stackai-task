@@ -9,70 +9,16 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { HeroButton } from "@/components/hero-button";
 import { BackButton } from "@/components/back-button";
-import { getIntegrationImageUrl } from "@/lib/integration";
+import { getIntegrationData, getIntegrationImageUrl } from "@/lib/integration";
+import { Metadata } from "next";
+import { getFilteredToolsData } from "@/lib/tools";
+import { Integration } from "@/types/integration";
+import { Tool } from "@/types/integration";
 
-const AUTH_TOKEN = process.env.AUTH_TOKEN;
-
-interface Integration {
-  id: string;
-  name: string;
-  description: string;
-  icon: string;
-  labels: string[];
-  params?: { name: string; label: string; type: string; required: boolean }[];
-  minimum_plan?: string;
-  is_marketing_stunt?: boolean;
-}
-
-interface Tool {
-  provider_id: string;
-  name: string;
-  description: string;
-  icon: string;
-  tags: string[];
-  actions: {
-    action_id: string;
-    name: string;
-    description: { human: string };
-  }[];
-}
-
-async function getIntegrationData(id: string): Promise<Integration | null> {
-  try {
-    const response = await fetch(
-      "https://stack-us-east-1.onrender.com/connections/available"
-    );
-
-    if (!response.ok) throw new Error("Failed to fetch integrations");
-
-    const data: Integration[] = await response.json();
-    return data.find((integration) => integration.id === id) || null;
-  } catch (error) {
-    console.error("Error fetching integration data:", error);
-    return null;
-  }
-}
-
-async function getToolData(id: string): Promise<Tool | null> {
-  try {
-    const response = await fetch(
-      "https://stack-us-east-1.onrender.com/tools/stackai",
-      {
-        headers: {
-          Authorization: `Bearer ${AUTH_TOKEN}`,
-        },
-      }
-    );
-
-    if (!response.ok) throw new Error("Failed to fetch tool data");
-
-    const data: Tool[] = await response.json();
-    return data.find((tool) => tool.provider_id === id) || null;
-  } catch (error) {
-    console.error("Error fetching tool data:", error);
-    return null;
-  }
-}
+export const metadata: Metadata = {
+  title: "StackAI - Integration",
+  description: "StackAI - Integration",
+};
 
 export default async function IntegrationDetailPage({
   params,
@@ -87,9 +33,9 @@ export default async function IntegrationDetailPage({
     notFound();
   }
 
-  const toolData = await getToolData(id);
+  const toolData = await getFilteredToolsData(id);
 
-  const displayData = toolData || integrationData;
+  const displayData: Integration | Tool = toolData || integrationData;
 
   const imageUrl = getIntegrationImageUrl(displayData.name, displayData.icon);
 

@@ -12,53 +12,7 @@ import { BackButton } from "@/components/back-button";
 import { getTypeColor } from "@/lib/action";
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import { Info } from "lucide-react";
-
-const AUTH_TOKEN = process.env.AUTH_TOKEN!;
-
-interface Tool {
-  provider_id: string;
-  name: string;
-  actions: {
-    action_id: string;
-    name: string;
-    description: { human: string };
-    input_params: {
-      name: string;
-      label: string;
-      type: string;
-      human_description: string;
-    }[];
-    output_params: {
-      name: string;
-      label: string;
-      type: string;
-      human_description: string;
-    }[];
-  }[];
-}
-
-async function getToolsData() {
-  try {
-    const response = await fetch(
-      "https://stack-us-east-1.onrender.com/tools/stackai",
-      {
-        headers: {
-          Authorization: `Bearer ${AUTH_TOKEN}`,
-        },
-        next: {
-          revalidate: 60, // Revalidate every 60 seconds
-        },
-      }
-    );
-
-    if (!response.ok) throw new Error("Failed to fetch tools data");
-
-    return (await response.json()) as Tool[];
-  } catch (error) {
-    console.error("Error fetching tools data:", error);
-    return [];
-  }
-}
+import { getToolsData } from "@/lib/tools";
 
 export default async function ActionDetailPage({
   params,
@@ -95,7 +49,6 @@ export default async function ActionDetailPage({
   return (
     <div className="">
       <BackButton text={`${toolData.name} Integration`} />
-      {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-2">
           <h1 className="text-3xl font-bold tracking-tight">{action.name}</h1>
@@ -108,7 +61,6 @@ export default async function ActionDetailPage({
         </p>
       </div>
 
-      {/* Input Parameters */}
       <Card className="mb-6 shadow-none">
         <CardHeader>
           <CardTitle className="text-xl">Input Parameters</CardTitle>
@@ -148,7 +100,6 @@ export default async function ActionDetailPage({
         </CardContent>
       </Card>
 
-      {/* Output Parameters */}
       <Card className="shadow-none">
         <CardHeader>
           <CardTitle className="text-xl">Output Parameters</CardTitle>
