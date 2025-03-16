@@ -64,7 +64,7 @@ export default async function IntegrationDetailPage({
           </div>
         </CardHeader>
         <CardContent className="p-0">
-          <section className="grid grid-cols-2 gap-4">
+          <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="border rounded-lg">
               <h2 className="text-xl flex  bg-accent border-b rounded-t-lg p-4 items-center gap-2 font-semibold mb-2">
                 <Note /> Description
