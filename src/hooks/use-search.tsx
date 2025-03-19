@@ -2,23 +2,22 @@
 import { Integration } from "@/types/integration";
 import { useCallback, useState } from "react";
 
-// Custom hook for search and filter functionality
 export const useSearch = (sortedIntegrations: Integration[] | undefined) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState<Integration[] | undefined>(
     undefined
   );
 
-  // Debounce function
-  const debounce = (func: (...args: any[]) => void, delay: number) => {
+  // @ts-expect-error : func is (...args: any[]) => void
+  const debounce = (func, delay: number) => {
     let timeoutId: NodeJS.Timeout | undefined;
-    return (...args: any[]) => {
+    // @ts-expect-error : args is an array
+    return (...args) => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => func(...args), delay);
     };
   };
 
-  // Filter function
   const handleFilter = useCallback(
     (term: string) => {
       const filtered = sortedIntegrations?.filter((item) =>
@@ -30,11 +29,10 @@ export const useSearch = (sortedIntegrations: Integration[] | undefined) => {
   );
 
   const debouncedFilter = useCallback(
-    debounce((term) => handleFilter(term), 300),
+    debounce((term: string) => handleFilter(term), 300),
     [handleFilter]
   );
 
-  // Handle input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchTerm(value);

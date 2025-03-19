@@ -60,7 +60,7 @@ const NoResults = ({ searchTerm }: { searchTerm: string }) => (
   <div className="flex flex-col mt-10 gap-2 items-center justify-center col-span-full">
     <Warning className="size-20 text-yellow-500" />
     <p className="text-2xl font-bold">
-      No such integration named "{searchTerm}"
+      No such integration named {`"${searchTerm}"`}
     </p>
   </div>
 );
