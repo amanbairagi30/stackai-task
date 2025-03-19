@@ -3,7 +3,6 @@ import { Command } from "@phosphor-icons/react/dist/ssr";
 import { Input } from "../ui/input";
 import { useEffect, useRef, useState } from "react";
 import { Funnel } from "@phosphor-icons/react";
-import { Button } from "../ui/button";
 import {
   Tooltip,
   TooltipContent,

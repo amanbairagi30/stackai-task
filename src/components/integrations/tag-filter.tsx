@@ -28,10 +28,6 @@ export const TagFilter = ({
   const tagsWithCounts = useMemo(() => {
     if (!integrations) return [];
 
-    const integrationsToCount = searchTerm
-      ? filteredIntegrations
-      : integrations;
-
     const tagCounts = new Map<string, number>();
 
     integrations.forEach((integration) => {
