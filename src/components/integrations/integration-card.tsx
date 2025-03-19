@@ -16,7 +16,7 @@ export const IntegrationCard = ({
   return (
     <div
       key={integration.id}
-      className="h-full hover:-translate-y-2 hover:shadow-2xl shadow-accent duration-500 border py-4 px-4 rounded-lg"
+      className="h-full hover:shadow-2xl shadow-accent duration-500 border py-4 px-4 rounded-lg"
     >
       <Card className="flex bg-transparent border-2 flex-col p-0 h-full border-none outline-none shadow-none transition-shadow">
         <CardHeader className="p-0">

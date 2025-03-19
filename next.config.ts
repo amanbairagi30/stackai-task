@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
         hostname: "stack-us-east-1.onrender.com",
         port: "",
         pathname: "*",
-        search: "",
       },
     ],
   },
