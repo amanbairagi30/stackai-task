@@ -18,20 +18,18 @@ export const metadata: Metadata = {
   description: "StackAI is a platform for building AI integrations.",
   keywords: ["StackAI", "AI", "Integrations", "Tools", "API", "Automation"],
   authors: [{ name: "StackAI", url: "https://stackai.com" }],
-  // icons: [
-  //   {
-  //     rel: "icon",
-  //     type: "image/png",
-  //     url: "/favicon-light.png",
-  //     media: "(prefers-color-scheme: light)",
-  //   },
-  //   {
-  //     rel: "icon",
-  //     type: "image/png",
-  //     url: "/favicon-dark.png",
-  //     media: "(prefers-color-scheme: dark)",
-  //   },
-  // ],
+  icons: [
+    {
+      media: "(prefers-color-scheme: light)",
+      url: "/images/favicon-dark.png",
+      href: "/images/favicon-dark.png",
+    },
+    {
+      media: "(prefers-color-scheme: dark)",
+      href: "/images/favicon-light.png",
+      url: "/images/favicon-light.png",
+    },
+  ],
 };
 
 export default function RootLayout({
