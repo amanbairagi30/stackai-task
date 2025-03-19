@@ -9,17 +9,17 @@ export function SkeletonGrids({ className }: SkeletonGridsProps) {
   return (
     <div
       className={cn(
-        "grid gap-4 md:gap-6 grid-cols-1 px-4 mb-10 md:grid-cols-2 lg:grid-cols-3 w-full",
+        "grid gap-4 grid-cols-1 mb-10 md:grid-cols-2 lg:grid-cols-3 w-full",
         className
       )}
     >
-      {Array.from({ length: 3 }).map((_, i) => (
+      {Array.from({ length: 15 }).map((_, i) => (
         <div key={i} className="h-full border py-4 px-4 rounded-lg">
           <Card className="flex bg-transparent border-2 flex-col p-0 h-full border-none outline-none shadow-none">
             <CardHeader className="p-0">
               <Skeleton className="size-16 rounded-lg" />
               <CardTitle className="mt-4 text-xl">
-                <Skeleton className="h-7 w-3/4 mt-4" />
+                <Skeleton className="h-7 w-3/4" />
               </CardTitle>
             </CardHeader>
             <CardContent className="flex-1 p-0 h-full flex flex-col">

@@ -18,6 +18,20 @@ export const metadata: Metadata = {
   description: "StackAI is a platform for building AI integrations.",
   keywords: ["StackAI", "AI", "Integrations", "Tools", "API", "Automation"],
   authors: [{ name: "StackAI", url: "https://stackai.com" }],
+  // icons: [
+  //   {
+  //     rel: "icon",
+  //     type: "image/png",
+  //     url: "/favicon-light.png",
+  //     media: "(prefers-color-scheme: light)",
+  //   },
+  //   {
+  //     rel: "icon",
+  //     type: "image/png",
+  //     url: "/favicon-dark.png",
+  //     media: "(prefers-color-scheme: dark)",
+  //   },
+  // ],
 };
 
 export default function RootLayout({
@@ -31,7 +45,7 @@ export default function RootLayout({
         className={`${geist.variable} ${hostGrotesk.variable} font-primary antialiased`}
       >
         <Provider>
-          <main className="">{children}</main>
+          <main>{children}</main>
         </Provider>
       </body>
     </html>

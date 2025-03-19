@@ -7,14 +7,14 @@ import { heroData } from "@/constants/data";
 
 export const Hero = () => {
   return (
-    <section className="relative mb-10 w-full overflow-y-hidden h-[30rem] max-h-fit">
-      <div className="max-w-7xl flex gap-3 items-center py-14 flex-col h-fit mx-auto p-6">
+    <section className="relative w-full overflow-y-hidden mb-0 min-h-[30rem] max-h-fit">
+      <div className="max-w-7xl flex gap-3 items-center pt-14 flex-col h-fit mx-auto p-6">
         <div className="flex flex-col gap-3 mb-4">
           <Logo />
           <p className="text-sm font-bold font-secondary">Stack AI</p>
         </div>
         <h1 className="text-4xl md:text-6xl font-bold">Integrations</h1>
-        <p className="w-full md:text-base text-sm font-medium font-secondary md:max-w-2xl text-center">
+        <p className="w-full md:text-base text-sm font-medium mb-4 font-secondary md:max-w-2xl text-center">
           At Stack AI, security and privacy of our customer&apos;s data is our
           top priority. Today, we are thrilled to announce that Stack AI is now
           SOC 2 Type II and HIPAA compliant.

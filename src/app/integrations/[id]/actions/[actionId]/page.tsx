@@ -61,81 +61,83 @@ export default async function ActionDetailPage({
         </p>
       </div>
 
-      <Card className="mb-6 shadow-none">
-        <CardHeader>
-          <CardTitle className="text-xl">Input Parameters</CardTitle>
-          <CardDescription>
-            Parameters required to execute this action
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          {action.input_params.length > 0 ? (
-            <div className="space-y-6">
-              {action.input_params.map((param) => (
-                <div key={param.name} className="group">
-                  <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <h3 className="font-medium text-lg">{param.label}</h3>
-                    <Badge
-                      className={`${getTypeColor(param.type)} transition-all`}
-                    >
-                      {param.type}
-                    </Badge>
-                    <code className="text-xs bg-muted px-1 py-0.5 rounded">
-                      {param.name}
-                    </code>
+      <div className="flex flex-col md:flex-row gap-4">
+        <Card className="flex-1 shadow-none">
+          <CardHeader className="gap-0">
+            <CardTitle className="text-xl">Input Parameters</CardTitle>
+            <CardDescription>
+              Parameters required to execute this action
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {action.input_params.length > 0 ? (
+              <div className="space-y-6">
+                {action.input_params.map((param) => (
+                  <div key={param.name} className="group">
+                    <div className="flex flex-wrap items-center gap-2 mb-1">
+                      <h3 className="font-medium text-lg">{param.label}</h3>
+                      <Badge
+                        className={`${getTypeColor(param.type)} transition-all`}
+                      >
+                        {param.type}
+                      </Badge>
+                      <code className="text-xs bg-muted px-1 py-0.5 rounded">
+                        {param.name}
+                      </code>
+                    </div>
+                    <p className="text-muted-foreground">
+                      {param.human_description}
+                    </p>
                   </div>
-                  <p className="text-muted-foreground">
-                    {param.human_description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="flex items-center justify-center py-6 text-center">
-              <p className="text-muted-foreground">
-                No input parameters required
-              </p>
-            </div>
-          )}
-        </CardContent>
-      </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="flex items-center justify-center py-6 text-center">
+                <p className="text-muted-foreground">
+                  No input parameters required
+                </p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
 
-      <Card className="shadow-none">
-        <CardHeader>
-          <CardTitle className="text-xl">Output Parameters</CardTitle>
-          <CardDescription>
-            Data returned after the action is executed
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          {action.output_params.length > 0 ? (
-            <div className="space-y-6">
-              {action.output_params.map((param) => (
-                <div key={param.name} className="group">
-                  <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <h3 className="font-medium text-lg">{param.label}</h3>
-                    <Badge
-                      className={`${getTypeColor(param.type)} transition-all`}
-                    >
-                      {param.type}
-                    </Badge>
-                    <code className="text-xs bg-muted px-1 py-0.5 rounded">
-                      {param.name}
-                    </code>
+        <Card className="flex-1 shadow-none">
+          <CardHeader className="gap-0">
+            <CardTitle className="text-xl">Output Parameters</CardTitle>
+            <CardDescription>
+              Data returned after the action is executed
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {action.output_params.length > 0 ? (
+              <div className="space-y-6">
+                {action.output_params.map((param) => (
+                  <div key={param.name} className="group">
+                    <div className="flex flex-wrap items-center gap-2 mb-1">
+                      <h3 className="font-medium text-lg">{param.label}</h3>
+                      <Badge
+                        className={`${getTypeColor(param.type)} transition-all`}
+                      >
+                        {param.type}
+                      </Badge>
+                      <code className="text-xs bg-muted px-1 py-0.5 rounded">
+                        {param.name}
+                      </code>
+                    </div>
+                    <p className="text-muted-foreground">
+                      {param.human_description}
+                    </p>
                   </div>
-                  <p className="text-muted-foreground">
-                    {param.human_description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="flex items-center justify-center py-6 text-center">
-              <p className="text-muted-foreground">No output parameters</p>
-            </div>
-          )}
-        </CardContent>
-      </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="flex items-center justify-center py-6 text-center">
+                <p className="text-muted-foreground">No output parameters</p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
     </section>
   );
 }

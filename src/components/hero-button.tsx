@@ -13,10 +13,10 @@ export const HeroButton = ({
   children: React.ReactNode;
 }) => {
   return (
-    <Link href={href} className="flex scroll-smooth items-center gap-2">
+    <Link href={href} className="flex w-fit scroll-smooth items-center gap-2">
       <Button
         className={cn(
-          "mt-4 z-[50] relative cursor-pointer hover:ring-4 ring-foreground/20 duration-500 group overflow-hidden",
+          "z-[50] relative cursor-pointer hover:ring-4 ring-foreground/20 duration-500 group overflow-hidden",
           className
         )}
       >
